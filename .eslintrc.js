@@ -1,10 +1,10 @@
 module.exports = {
-    root: true,
-    parserOptions: {
-        sourceType: 'module'
-    },
-    extends: 'standard',
-    plugins: [
-        'html'
-    ]
+  root: true,
+  parserOptions: {
+    sourceType: 'module'
+  },
+  extends: ['standard', 'plugin:vue/recommended'],
+  plugins: [
+    'html'
+  ]
 }

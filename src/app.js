@@ -1,12 +1,8 @@
 import Vue from 'vue'
+import AppLayout from './theme/Layout.vue'
 
-new Vue({
-  data: {
-    hello: 'hi there xccx'
-  },
-  template: '<div id="app">{{ hello }}</div>'
+const app = new Vue({
+  render: h => h(AppLayout)
 }).$mount('#app')
 
-if (module.hot) {
-  module.hot.accept()
-}
+export { app }
