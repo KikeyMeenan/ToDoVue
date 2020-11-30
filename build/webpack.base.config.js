@@ -16,6 +16,10 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
+      },
+      {
+        test: /\.js$/,
+        use: 'babel-loader'
       }
     ]
   },

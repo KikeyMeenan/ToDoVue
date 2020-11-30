@@ -1,6 +1,6 @@
 <template>
   <div>
-    template here xo
+    template here xocp
   </div>
 </template>
 <script>
