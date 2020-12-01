@@ -1,9 +1,18 @@
 <template>
   <div class="home">
     <h1>List</h1>
-    <GenericFilter text="complete" @toggleFilter="toggleCompleteFilter"/>
-    <GenericFilter text="assigned" @toggleFilter="toggleAssignedFilter"/>
-    <GenericFilter text="high priority" @toggleFilter="toggleHighPriorityFilter"/>
+    <GenericFilter
+    :active="isActiveCompleteFilter"
+    text="complete"
+    @toggleFilter="toggleCompleteFilter" />
+    <GenericFilter
+    :active="isActiveAssignedFilter"
+    text="assigned"
+    @toggleFilter="toggleAssignedFilter" />
+    <GenericFilter
+    :active="isActiveHighPriorityFilter"
+    text="high priority"
+    @toggleFilter="toggleHighPriorityFilter" />
     <ToDoItem v-for="item in toDoList" :key="item.id" :item="item"/>
   </div>
 </template>
@@ -26,6 +35,15 @@ import { mapGetters, mapActions } from 'vuex';
     ...mapGetters('ToDoModule', [
       'ToDos',
     ]),
+    ...mapGetters('AssignedFilterModule', {
+      isActiveAssignedFilter: 'IsActive',
+    }),
+    ...mapGetters('CompleteFilterModule', {
+      isActiveCompleteFilter: 'IsActive',
+    }),
+    ...mapGetters('HighPriorityFilterModule', {
+      isActiveHighPriorityFilter: 'IsActive',
+    }),
   },
   methods: {
     ...mapActions('AssignedFilterModule', {
