@@ -1,6 +1,10 @@
 <template>
   <div>
-    <p>name: {{ item.name }}, complete: {{ item.complete }}</p>
+    <p>
+      name: {{ item.name }},
+      complete: {{ item.complete }}
+      assigned to: {{ item.assignedToUserId }}
+    </p>
   </div>
 </template>
 

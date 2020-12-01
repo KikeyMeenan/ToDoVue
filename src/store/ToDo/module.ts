@@ -13,10 +13,18 @@ export default {
   getters: {
     ToDos: (state: ToDoState, getters: any, rootState: any, rootGetters: any) => {
       const completeFilterActive = rootGetters['CompleteFilterModule/IsActive'] as boolean;
+      const assignedFilterActive = rootGetters['AssignedFilterModule/IsActive'] as boolean;
+
+      let filteredResult = state.toDos;
+
       if (completeFilterActive) {
-        return state.toDos.filter((x) => x.complete);
+        filteredResult = filteredResult.filter((x) => x.complete);
       }
-      return state.toDos;
+      if (assignedFilterActive) {
+        filteredResult = filteredResult.filter((x) => x.assignedToUserId === 1);
+      }
+
+      return filteredResult;
     },
   },
 };
