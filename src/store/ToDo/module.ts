@@ -14,6 +14,7 @@ export default {
     ToDos: (state: ToDoState, getters: any, rootState: any, rootGetters: any) => {
       const completeFilterActive = rootGetters['CompleteFilterModule/IsActive'] as boolean;
       const assignedFilterActive = rootGetters['AssignedFilterModule/IsActive'] as boolean;
+      const highPriorityFilterActive = rootGetters['HighPriorityFilterModule/IsActive'] as boolean;
 
       let filteredResult = state.toDos;
 
@@ -22,6 +23,9 @@ export default {
       }
       if (assignedFilterActive) {
         filteredResult = filteredResult.filter((x) => x.assignedToUserId === 1);
+      }
+      if (highPriorityFilterActive) {
+        filteredResult = filteredResult.filter((x) => x.priority > 1);
       }
 
       return filteredResult;

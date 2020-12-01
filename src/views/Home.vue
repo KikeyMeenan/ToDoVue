@@ -3,6 +3,7 @@
     <h1>List</h1>
     <GenericFilter text="complete" @toggleFilter="toggleCompleteFilter"/>
     <GenericFilter text="assigned" @toggleFilter="toggleAssignedFilter"/>
+    <GenericFilter text="high priority" @toggleFilter="toggleHighPriorityFilter"/>
     <ToDoItem v-for="item in toDoList" :key="item.id" :item="item"/>
   </div>
 </template>
@@ -32,6 +33,9 @@ import { mapGetters, mapActions } from 'vuex';
     }),
     ...mapActions('CompleteFilterModule', {
       toggleCompleteFilter: 'toggleActive',
+    }),
+    ...mapActions('HighPriorityFilterModule', {
+      toggleHighPriorityFilter: 'toggleActive',
     }),
   },
 })
