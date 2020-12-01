@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <h1>List</h1>
-    <CompleteFilter />
-    <AssignedFilter />
+    <GenericFilter text="complete" @toggleFilter="toggleCompleteFilter"/>
+    <GenericFilter text="assigned" @toggleFilter="toggleAssignedFilter"/>
     <ToDoItem v-for="item in toDoList" :key="item.id" :item="item"/>
   </div>
 </template>
@@ -10,15 +10,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ToDoItem from '@/components/ToDoItem.vue';
-import CompleteFilter from '@/components/CompleteFilter.vue';
-import AssignedFilter from '@/components/AssignedFilter.vue';
-import { mapGetters } from 'vuex';
+import GenericFilter from '@/components/GenericFilter.vue';
+import { mapGetters, mapActions } from 'vuex';
 
 @Component({
   components: {
     ToDoItem,
-    CompleteFilter,
-    AssignedFilter,
+    GenericFilter,
   },
   computed: {
     toDoList() {
@@ -27,6 +25,14 @@ import { mapGetters } from 'vuex';
     ...mapGetters('ToDoModule', [
       'ToDos',
     ]),
+  },
+  methods: {
+    ...mapActions('AssignedFilterModule', {
+      toggleAssignedFilter: 'toggleActive',
+    }),
+    ...mapActions('CompleteFilterModule', {
+      toggleCompleteFilter: 'toggleActive',
+    }),
   },
 })
 export default class Home extends Vue {}
