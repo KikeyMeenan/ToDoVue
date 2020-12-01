@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import ToDoModule from './ToDo/module';
-import GenericFilterModule from './Filters/genericFilterModule';
+import CompleteFilterModule from './Filters/completeFilter';
+import AssignedFilterModule from './Filters/assignedFilter';
+import HighPriorityFilterModule from './Filters/highPriorityFilter';
 
 Vue.use(Vuex);
 
@@ -12,10 +14,12 @@ export default new Vuex.Store({
   },
   actions: {
   },
+  // register filter modules when comonents are created? it's possible!
+  // also, only render components in active filter list? is this getting too crazy?
   modules: {
     ToDoModule,
-    CompleteFilterModule: GenericFilterModule(),
-    AssignedFilterModule: GenericFilterModule(),
-    HighPriorityFilterModule: GenericFilterModule(),
+    CompleteFilterModule: CompleteFilterModule.module,
+    AssignedFilterModule: AssignedFilterModule.module,
+    HighPriorityFilterModule: HighPriorityFilterModule.module,
   },
 });
