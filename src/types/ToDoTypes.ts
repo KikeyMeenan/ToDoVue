@@ -16,9 +16,23 @@ interface Item {
   assignedDate: string | null;
 }
 
+interface CreateItem {
+  name: string;
+  priority: number;
+  categoryId: number;
+  description: string | null;
+  completeBy: string | null;
+  effort: number;
+  createdByUserId: number;
+  assignedToUserId: number | null;
+  assignedByUserId: number | null;
+  createdDate: string;
+  assignedDate: string | null;
+}
+
 interface Category {
   id: number;
   name: string;
 }
 
-export { Item, Category }
+export { Item, Category, CreateItem }
