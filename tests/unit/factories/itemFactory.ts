@@ -1,17 +1,23 @@
 import { Item } from '@/types/ToDoTypes';
 
-export default(id: number, assignedToUserId: number) => {
+export default(
+  id: number,
+  assignedToUserId: number | null,
+  isComplete: boolean = false,
+  priority: number = 1,
+  categoryId: number = 1
+) => {
   return {
-    "id": id,
+    id,
     "name": "some name",
-    "complete": false,
-    "priority": 1,
-    "categoryId": 1,
+    "complete": isComplete,
+    priority,
+    categoryId,
     "description": null,
     "completeBy": null,
     "effort": 1,
     "createdByUserId": 1,
-    "assignedToUserId": assignedToUserId,
+    assignedToUserId,
     "assignedByUserId": null,
     "completedByUserId": null,
     "createdDate": "01/01/2000",
