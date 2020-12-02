@@ -4,16 +4,16 @@ interface Item {
   complete: boolean;
   priority: number;
   categoryId: number;
-  description: string;
-  completeBy: string;
+  description: string | null;
+  completeBy: string | null;
   effort: number;
   createdByUserId: number;
-  assignedToUserId: number;
-  assignedByUserId: number;
-  completedByUserId: number;
+  assignedToUserId: number | null;
+  assignedByUserId: number | null;
+  completedByUserId: number | null;
   createdDate: string;
-  completedDate: string;
-  assignedDate: string;
+  completedDate: string | null;
+  assignedDate: string | null;
 }
 
 interface Category {
