@@ -16,4 +16,9 @@ interface Item {
   assignedDate: string;
 }
 
-export { Item }
+interface Category {
+  id: number;
+  name: string;
+}
+
+export { Item, Category }

@@ -1,18 +1,19 @@
 <template>
   <div class="home">
     <h1>List</h1>
-    <GenericFilter
+    <GenericLogicalFilter
     :active="isActiveCompleteFilter"
     text="complete"
     @toggleFilter="toggleCompleteFilter" />
-    <GenericFilter
+    <GenericLogicalFilter
     :active="isActiveAssignedFilter"
     text="assigned"
     @toggleFilter="toggleAssignedFilter" />
-    <GenericFilter
+    <GenericLogicalFilter
     :active="isActiveHighPriorityFilter"
     text="high priority"
     @toggleFilter="toggleHighPriorityFilter" />
+    <CategoryFilter />
     <ToDoItem v-for="item in toDoList" :key="item.id" :item="item"/>
   </div>
 </template>
@@ -20,13 +21,15 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import ToDoItem from '@/components/ToDoItem.vue';
-import GenericFilter from '@/components/GenericFilter.vue';
+import GenericLogicalFilter from '@/components/GenericLogicalFilter.vue';
+import CategoryFilter from '@/components/CategoryFilter.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 @Component({
   components: {
     ToDoItem,
-    GenericFilter,
+    GenericLogicalFilter,
+    CategoryFilter,
   },
   computed: {
     toDoList() {
