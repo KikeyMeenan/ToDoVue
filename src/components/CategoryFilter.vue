@@ -31,5 +31,5 @@ import { mapGetters, mapActions } from 'vuex';
     }),
   },
 })
-export default class GenericFilter extends Vue {}
+export default class CategoryFilter extends Vue {}
 </script>

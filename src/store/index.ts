@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import ToDoModule from './ToDo/module';
 import CategoryFilterModule from './Filters/categoryFilter';
 import GenericLogicalFilter from './Filters/genericLogicalFilterModule';
-import CreateItemModule from './Item/module';
+import ItemModule from './Item/module';
 
 Vue.use(Vuex);
 
@@ -16,7 +16,7 @@ export default new Vuex.Store({
   },
   modules: {
     ToDoModule,
-    CreateItemModule,
+    ItemModule,
     CategoryFilterModule,
     CompleteFilterModule: GenericLogicalFilter(),
     AssignedFilterModule: GenericLogicalFilter(),

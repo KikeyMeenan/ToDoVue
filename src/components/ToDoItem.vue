@@ -5,6 +5,7 @@
       complete: {{ item.complete }}
       assigned to: {{ item.assignedToUserId }}
     </p>
+    <button @click="editItem(item.id)">Edit</button>
   </div>
 </template>
 
@@ -12,7 +13,13 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Item } from '@/types/ToDoTypes';
 
-@Component
+@Component({
+  methods: {
+    editItem(id: number) {
+      this.$router.push({ name: 'EditItem', params: { id: id.toString() } });
+    },
+  },
+})
 export default class ToDoItem extends Vue {
   @Prop() private item!: Item;
 }

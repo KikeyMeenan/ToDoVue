@@ -16,7 +16,7 @@ interface Item {
   assignedDate: string | null;
 }
 
-interface CreateItem {
+interface ItemSubmission {
   name: string;
   priority: number;
   categoryId: number;
@@ -35,4 +35,4 @@ interface Category {
   name: string;
 }
 
-export { Item, Category, CreateItem }
+export { Item, Category, ItemSubmission }

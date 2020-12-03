@@ -16,5 +16,5 @@ import { Component, Vue } from 'vue-property-decorator';
     },
   },
 })
-export default class GenericFilter extends Vue {}
+export default class GenericLogicalFilter extends Vue {}
 </script>
