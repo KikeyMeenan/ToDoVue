@@ -1,15 +1,12 @@
 import { Category } from '@/types/ToDoTypes';
-import json from '../../../testData/categories.json';
 
 interface CategoryState {
-  categories: Array<Category>;
   selected: number | null;
 }
 
 export default {
   namespaced: true,
   state: {
-    categories: json,
     selected: null,
   } as CategoryState,
   getters: {
@@ -18,7 +15,7 @@ export default {
       getters: any,
       rootState: any,
       rootGetters: any,
-    ) => rootGetters['CategoryModule/categories'],
+    ) => rootGetters['CategoryModule/categories'] as Array<Category>,
     Selected: (state: CategoryState) => state.selected,
   },
   mutations: {
