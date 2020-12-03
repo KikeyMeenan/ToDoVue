@@ -4,6 +4,7 @@ import ToDoModule from './ToDo/module';
 import CategoryFilterModule from './Filters/categoryFilter';
 import GenericLogicalFilter from './Filters/genericLogicalFilterModule';
 import ItemModule from './Item/module';
+import CategoryModule from './Category/module';
 
 Vue.use(Vuex);
 
@@ -21,5 +22,6 @@ export default new Vuex.Store({
     CompleteFilterModule: GenericLogicalFilter(),
     AssignedFilterModule: GenericLogicalFilter(),
     HighPriorityFilterModule: GenericLogicalFilter(),
+    CategoryModule,
   },
 });

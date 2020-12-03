@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import ItemForm from '@/components/ItemForm.vue';
+import ItemForm from '@/components/Items/ItemForm.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import { mapActions, mapGetters } from 'vuex';
 

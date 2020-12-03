@@ -35,4 +35,8 @@ interface Category {
   name: string;
 }
 
-export { Item, Category, ItemSubmission }
+interface CategorySubmission {
+  name: string;
+}
+
+export { Item, Category, ItemSubmission, CategorySubmission }

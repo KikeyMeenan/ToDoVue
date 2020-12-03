@@ -23,6 +23,21 @@ const routes: Array<RouteConfig> = [
     name: 'EditItem',
     component: () => import(/* webpackChunkName: "edititem" */ '../views/EditItem.vue'),
   },
+  {
+    path: '/categories',
+    name: 'Categories',
+    component: () => import(/* webpackChunkName: "categories" */ '../views/CategoryList.vue'),
+  },
+  {
+    path: '/create-category',
+    name: 'CreateCategory',
+    component: () => import(/* webpackChunkName: "createcategory" */ '../views/CreateCategory.vue'),
+  },
+  {
+    path: '/edit-category/:id',
+    name: 'EditCategory',
+    component: () => import(/* webpackChunkName: "editcategory" */ '../views/EditCategory.vue'),
+  },
 ];
 
 const router = new VueRouter({

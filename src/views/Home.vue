@@ -20,9 +20,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import ToDoItem from '@/components/ToDoItem.vue';
-import GenericLogicalFilter from '@/components/GenericLogicalFilter.vue';
-import CategoryFilter from '@/components/CategoryFilter.vue';
+import ToDoItem from '@/components/Items/ToDoItem.vue';
+import GenericLogicalFilter from '@/components/Filters/GenericLogicalFilter.vue';
+import CategoryFilter from '@/components/Filters/CategoryFilter.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 @Component({

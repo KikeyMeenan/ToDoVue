@@ -3,14 +3,12 @@ import json from '../../../testData/items.json';
 
 interface State {
   activeItemId: number | null;
-  test: number;
 }
 
 export default {
   namespaced: true,
   state: {
     activeItemId: null,
-    test: 2,
   } as State,
   mutations: {
     setActiveItemId(state: State, payload: number) {
