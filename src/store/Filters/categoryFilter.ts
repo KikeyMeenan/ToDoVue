@@ -13,7 +13,12 @@ export default {
     selected: null,
   } as CategoryState,
   getters: {
-    Categories: (state: CategoryState) => state.categories,
+    Categories: (
+      state: CategoryState,
+      getters: any,
+      rootState: any,
+      rootGetters: any,
+    ) => rootGetters['CategoryModule/categories'],
     Selected: (state: CategoryState) => state.selected,
   },
   mutations: {
