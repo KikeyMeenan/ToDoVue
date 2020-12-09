@@ -1,13 +1,9 @@
 import { Item } from '@/types/ToDoTypes';
 
-interface ToDoState {
-  toDos: Array<Item> | null;
-}
-
 export const moduleGetters = {
-  ToDos: (state: ToDoState, getters: any, rootState: any, rootGetters: any) => {
-    if (!state.toDos) return null;
-    let filteredResult = state.toDos;
+  ToDos: (state: any, getters: any, rootState: any, rootGetters: any) => {
+    let filteredResult = rootGetters['ItemModule/getItems'] as Array<Item> | null;
+    if (!filteredResult) return null;
 
     const assignedFilterActive = rootGetters['AssignedFilterModule/IsActive'] as boolean;
     if (assignedFilterActive) {
@@ -37,22 +33,5 @@ export const moduleGetters = {
 
 export default {
   namespaced: true,
-  state: {
-    toDos: null,
-  } as ToDoState,
-  mutations: {
-    setItems(state: ToDoState, payload: Array<Item>) {
-      state.toDos = payload;
-    },
-  },
-  actions: {
-    async getItems(context: any) {
-      console.log(0);
-      // proxy not working for post? hmmm
-      const items = await (await fetch('/api/items')).json();
-      console.log(1, items);
-      context.commit('setItems', items);
-    },
-  },
   getters: moduleGetters,
 };

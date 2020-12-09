@@ -32,8 +32,7 @@ import { mapGetters, mapActions } from 'vuex';
     CategoryFilter,
   },
   async created() {
-    console.log('in created');
-    await this.$store.dispatch('ToDoModule/getItems');
+    await this.$store.dispatch('ItemModule/getItems');
   },
   computed: {
     toDoList() {

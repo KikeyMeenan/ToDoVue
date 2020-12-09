@@ -15,11 +15,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': true,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': false
+        'CategoryFilterModule/Selected': false,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all assigned', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
 
@@ -38,11 +39,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': false
+        'CategoryFilterModule/Selected': false,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return both', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
 
@@ -64,11 +66,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': true,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': false
+        'CategoryFilterModule/Selected': false,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all completed', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -87,11 +90,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': false
+        'CategoryFilterModule/Selected': false,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return both', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -113,11 +117,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': true,
-        'CategoryFilterModule/Selected': false
+        'CategoryFilterModule/Selected': false,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all high priority', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -136,11 +141,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': false
+        'CategoryFilterModule/Selected': false,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return both', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -162,11 +168,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': '1'
+        'CategoryFilterModule/Selected': '1',
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all in category 1', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -185,11 +192,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': null
+        'CategoryFilterModule/Selected': null,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -214,11 +222,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': true,
         'CompleteFilterModule/IsActive': true,
         'HighPriorityFilterModule/IsActive': true,
-        'CategoryFilterModule/Selected': '1'
+        'CategoryFilterModule/Selected': '1',
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all that match all filters', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
@@ -235,11 +244,12 @@ describe('todo getters', () => {
         'AssignedFilterModule/IsActive': false,
         'CompleteFilterModule/IsActive': false,
         'HighPriorityFilterModule/IsActive': false,
-        'CategoryFilterModule/Selected': null
+        'CategoryFilterModule/Selected': null,
+        'ItemModule/getItems': toDos,
       }
 
       it('when getting todos then return all', () => {
-        const result = moduleGetters.ToDos({ toDos }, {}, {}, rootGetters);
+        const result = moduleGetters.ToDos({}, {}, {}, rootGetters);
       
         if(!result) return false;
         
