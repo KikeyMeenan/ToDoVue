@@ -1,4 +1,6 @@
 import { Item, ItemSubmission } from '@/types/ToDoTypes';
+// import router from '@/router/index';
+import ActionStatus from '@/types/ActionStatus';
 
 interface State {
   activeItemId: number | null;
@@ -21,7 +23,6 @@ export default {
   },
   actions: {
     async getItems(context: any) {
-      // proxy not working for post? hmmm
       const items = await (await fetch('/api/items')).json();
       context.commit('setItems', items);
     },
@@ -33,8 +34,22 @@ export default {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(payload),
-      })).json();
-      // update items in state
+      })).status;
+
+      if (result === 200) {
+        // actually, we should probably have a generic service
+        // that handles requests and error handling
+        // instead of having to do this on every request
+
+        // put this thing on the main level so it shows even after navigation
+        // if we don't have those levels, add them!
+        context.dispatch('updateActionStatus', ActionStatus.Success);
+        context.dispatch('updateActionMessage', 'successfuly added item');
+      }
+      else {
+        context.dispatch('updateActionStatus', ActionStatus.Error);
+        context.dispatch('updateActionMessage', 'failed to add item');
+      }
     },
     editItem(context: any, payload: ItemSubmission) {
       // update via api here

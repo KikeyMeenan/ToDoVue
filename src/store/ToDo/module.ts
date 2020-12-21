@@ -21,6 +21,7 @@ export const moduleGetters = {
     }
 
     const categoryFilterSelected = rootGetters['CategoryFilterModule/Selected'];
+
     if (categoryFilterSelected && categoryFilterSelected !== '0') {
       filteredResult = filteredResult.filter(
         (x) => x.categoryId === parseInt(categoryFilterSelected, 10),
