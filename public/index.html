@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="https://apis.google.com/js/platform.js"></script>
+    <script>
+      gapi.load('auth2', function() {
+        window.auth2 = gapi.auth2.init({
+          client_id: '676145830685-dgaoc9b2qqcmihl08t1p1ah5r9s0aa43.apps.googleusercontent.com',
+          // Scopes to request in addition to 'profile' and 'email'
+          //scope: 'additional_scope'
+        });
+      });
+    </script>
   </head>
   <body>
     <noscript>
