@@ -1,8 +1,8 @@
 enum ActionStatus {
-  None,
-  InProgress,
-  Success,
-  Error
+  None = 'None',
+  InProgress = 'InProgress',
+  Success = 'Success',
+  Error = 'Error'
 }
 
 export default ActionStatus;

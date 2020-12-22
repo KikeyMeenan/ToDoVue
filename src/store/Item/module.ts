@@ -1,6 +1,6 @@
 import { Item, ItemSubmission } from '@/types/ToDoTypes';
 // import router from '@/router/index';
-import ActionStatus from '@/types/ActionStatus';
+import { processRequest, Request, requestTypes } from '@/api/service';
 
 interface State {
   activeItemId: number | null;
@@ -23,33 +23,31 @@ export default {
   },
   actions: {
     async getItems(context: any) {
-      const items = await (await fetch('/api/items')).json();
-      context.commit('setItems', items);
+      const items = await processRequest(
+        context,
+        {
+          url: '/api/items',
+          showSuccess: false,
+          showError: true,
+          requestType: requestTypes.GET,
+          errorMessage: 'failed to get items',
+        } as Request,
+      );
+      context.commit('setItems', await items?.json());
     },
     async createItem(context: any, payload: ItemSubmission) {
-      // update via api here
-      const result = await (await fetch('/api/items', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })).status;
-
-      if (result === 200) {
-        // actually, we should probably have a generic service
-        // that handles requests and error handling
-        // instead of having to do this on every request
-
-        // put this thing on the main level so it shows even after navigation
-        // if we don't have those levels, add them!
-        context.dispatch('updateActionStatus', ActionStatus.Success);
-        context.dispatch('updateActionMessage', 'successfuly added item');
-      }
-      else {
-        context.dispatch('updateActionStatus', ActionStatus.Error);
-        context.dispatch('updateActionMessage', 'failed to add item');
-      }
+      await processRequest(
+        context,
+        {
+          url: '/api/items',
+          showSuccess: true,
+          showError: true,
+          requestType: requestTypes.POST,
+          body: JSON.stringify(payload),
+          successMessage: 'successfully created item',
+          errorMessage: 'failed to create item',
+        } as Request,
+      );
     },
     editItem(context: any, payload: ItemSubmission) {
       // update via api here
