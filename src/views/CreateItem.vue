@@ -1,7 +1,6 @@
 <template>
   <div>
     <ItemForm title="Create Item" @submitForm="createItem" />
-    <ActionMessage />
   </div>
 </template>
 
