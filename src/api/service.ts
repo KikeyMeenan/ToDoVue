@@ -17,11 +17,11 @@ interface Request {
   requestType: requestTypes;
 }
 
-const processRequest = async (context: any, payload: Request): Promise<any> => {
-  let result = null;
+const processRequest = async (context: any, payload: Request): Promise<Response> => {
   context.dispatch('ActionMessageModule/updateActionStatus', ActionStatus.InProgress, { root: true });
+  let response = new Response();
   try {
-    const response = await (await fetch(payload.url, {
+    response = await (await fetch(payload.url, {
       method: payload.requestType.toString(),
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +36,6 @@ const processRequest = async (context: any, payload: Request): Promise<any> => {
       if (payload.showSuccess) {
         context.dispatch('ActionMessageModule/updateActionResultDisplay', true, { root: true });
       }
-      result = response;
     } else {
       context.dispatch('ActionMessageModule/updateActionStatus', ActionStatus.Error, { root: true });
       if (payload.errorMessage) {
@@ -55,7 +54,7 @@ const processRequest = async (context: any, payload: Request): Promise<any> => {
       context.dispatch('ActionMessageModule/updateActionResultDisplay', true, { root: true });
     }
   }
-  return result;
+  return response;
 };
 // PUT
 // DELETE

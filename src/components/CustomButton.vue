@@ -1,5 +1,5 @@
 <template>
-  <button :class="buttonClasses">
+  <button :class="buttonClasses" @click="emitEvent">
     <slot></slot>
   </button>
 </template>
@@ -12,6 +12,11 @@ import { Vue, Component } from 'vue-property-decorator';
   computed: {
     buttonClasses(): string[] {
       return ['button', this.$props.type ? `button--${this.$props.type}` : ''];
+    },
+  },
+  methods: {
+    emitEvent() {
+      this.$emit('clickEvent');
     },
   },
 })

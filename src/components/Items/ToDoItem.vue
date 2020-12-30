@@ -10,10 +10,10 @@
       <custom-button class="action-button" :type="item.complete ? 'success' : 'warning'">
         <font-awesome-icon class="action-button__icon" :icon="item.complete ? 'check' : 'times'" />
       </custom-button>
-      <custom-button class="action-button" @click="editItem(item.id)">
+      <custom-button class="action-button" @clickEvent="editItem">
         <font-awesome-icon class="action-button__icon" icon="edit" />
       </custom-button>
-      <custom-button class="action-button" type="danger">
+      <custom-button class="action-button" @clickEvent="deleteItem" type="danger">
         <font-awesome-icon class="action-button__icon" icon="trash-alt" />
       </custom-button>
     </div>
@@ -24,14 +24,18 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { Item } from '@/types/ToDoTypes';
 import CustomButton from '@/components/CustomButton.vue';
+import { mapActions } from 'vuex';
 
 @Component({
   components: {
     CustomButton,
   },
   methods: {
-    editItem(id: number) {
-      this.$router.push({ name: 'EditItem', params: { id: id.toString() } });
+    editItem() {
+      this.$router.push({ name: 'EditItem', params: { id: (this.$props.item as Item).id.toString() } });
+    },
+    deleteItem() {
+      this.$store.dispatch('ItemModule/deleteItem', (this.$props.item as Item).id);
     },
   },
 })

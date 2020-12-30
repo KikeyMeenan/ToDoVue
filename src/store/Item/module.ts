@@ -54,6 +54,22 @@ export default {
       console.log('edit', payload);
       // update items in state
     },
+    async deleteItem(context: any, payload: number) {
+      const result = await processRequest(
+        context,
+        {
+          url: `/api/items/${payload}`,
+          showSuccess: true,
+          showError: true,
+          requestType: requestTypes.DELETE,
+          successMessage: 'successfully deleted item',
+          errorMessage: 'failed to delete item',
+        } as Request,
+      );
+      if (result.ok) {
+        context.dispatch('getItems');
+      }
+    },
     setActiveItemId(context: any, payload: string) {
       context.commit('setActiveItemId', parseInt(payload, 10));
     },

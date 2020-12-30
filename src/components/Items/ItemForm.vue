@@ -43,7 +43,7 @@ import { Component, Vue } from 'vue-property-decorator';
   },
   methods: {
     submitForm(event: any) {
-      const newItem: ItemSubmission = {
+      const item: ItemSubmission = {
         name: this.$data.name,
         priority: this.$data.priority,
         categoryId: this.$data.categoryId,
@@ -57,7 +57,7 @@ import { Component, Vue } from 'vue-property-decorator';
         assignedDate: null,
       };
 
-      this.$emit('submitForm', newItem);
+      this.$emit('submitForm', item);
     },
   },
 })
